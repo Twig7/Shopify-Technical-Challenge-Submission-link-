@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using ProjectName.Models;
+using PierresTreats.Models;
 using System.Threading.Tasks;
+using PierresTreats.ViewModels;
 
-namespace ToDoList.Controllers
+namespace PierresTreats.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ProjectNameContext _db;
+        private readonly PierresTreatsContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
