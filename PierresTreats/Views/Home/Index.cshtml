@@ -1,3 +1,35 @@
 @{
   Layout = "_Layout";
 }
+<div class="container">
+  <center>
+    <h1>Pierre's Treats</h1>
+  </center>
+  <br>
+  <br>
+  <h3>
+    <center>Sweets and Treats for</center>
+  </h3>
+  <br>
+  <br>
+  <div class="column">
+    <div class="row">
+      <div class="card-border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">
+          <h2>
+            <center> @Html.ActionLink("Treat menu", "Index", "Treats")</center>
+          </h2>
+        </div>
+        <br>
+        <br>
+        <div class="card border-info mb-3" style="max-height: 20rem; max-width: 30rem;">
+          <div class="card-header">
+            <h2>
+              <center> @Html.ActionLink("Flavors available", "Index", "Flavors")</center>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
