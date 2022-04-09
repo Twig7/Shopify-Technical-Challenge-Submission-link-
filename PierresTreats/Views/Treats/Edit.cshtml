@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+@model PIerresTreats.Models.Treat
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Edit treat?</h1>
+      </div>
+      <h3>Edit this treat: @Html.DisplayFor(model => model.Type)</h3>
+      <br>
+      @using (Html.BeginForm())
+      {
+        @Html.HiddenFor(model => model.TreatId)
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name, new { @required = "required"})
+        @Html.LabelFor(model => model.Amount)
+        @Html.TextBoxFor(model => model.Amount, new { @required = "require"})
+        @Html.Label("Select Flavor")
+        @Html.DropDownList("FlavorId")
+        <input type="submit" id="button" type="submit" value="Save" />
+      }
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Treat List", "Index")</button>
+    </div>
+  </div>
+</div>
