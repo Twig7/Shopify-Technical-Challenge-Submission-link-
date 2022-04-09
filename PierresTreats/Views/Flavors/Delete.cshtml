@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model PIerresTreats.Models.Flavors
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Not feeling this flavor anymore?</h1>
+      </div>
+      <h4>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h4>
+      <br>
+      @using (Html.BeginForm())
+      {
+        <input type="submit" value="Delete" id="button" type="button" class="btn btn-success" />
+      }
+      <br>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Flavor List", "Index")</button>
+    </div>
+  </div>
+</div>
