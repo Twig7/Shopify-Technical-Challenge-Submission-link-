@@ -54,8 +54,8 @@ namespace PierresTreats.Controllers
     {
       var thisTreat = _db.Treats 
         .Include(treat => treat.JoinEntities)
-        .ThenINclude(join => join.Flavor)
-        .FirstOrdefault(treat => treat.TreatId == id);
+        .ThenInclude(join => join.Flavor)
+        .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
     [HttpPost]
@@ -77,7 +77,7 @@ namespace PierresTreats.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisTreat = _db.Treats.FirstOrdefault(treat => treat.TreatId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       _db.Treats.Remove(thisTreat);
       _db.SaveChanges();
       return RedirectToAction("Index");

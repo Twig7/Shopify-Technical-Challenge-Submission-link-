@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProjectName.Models
+namespace PierresTreats.Models
 {
-  public class ProjectNameContext : IdentityDbContext<ApplicationUser>
+  public class PierresTreatsContext : IdentityDbContext<ApplicationUser>
   {
-    public DbSet<DatabaseTablePlaceholder> DatabaseTablePlaceholder { get; set; }
-    public ProjectNameContext(DbContextOptions options) : base(options) { }
+    public DbSet<Flavor> Flavors { get; set; }
+    public DbSet<Treat> Treats { get; set; }
+    public DbSet<FlavorTreat> FlavorTreat { get; set; }
+
+    public PierresTreatsContext(DbContextOptions options) : base(options) { }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       optionsBuilder.UseLazyLoadingProxies();

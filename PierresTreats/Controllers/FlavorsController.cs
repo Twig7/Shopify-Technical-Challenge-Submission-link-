@@ -12,7 +12,7 @@ namespace PierresTreats.Controllers
 {
   public class FlavorsController : Controller
   {
-    private readonly PierresTreatsCOntext _db;
+    private readonly PierresTreatsContext _db;
     public FlavorsController(PierresTreatsContext db)
     {
       _db = db;
@@ -39,7 +39,7 @@ namespace PierresTreats.Controllers
     {
       var thisFlavor = _db.Flavors
         .Include(flavor => flavor.JoinEntities)
-        .ThenInclude(join.Treat)
+        .ThenInclude(join => join.Treat)
         .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
