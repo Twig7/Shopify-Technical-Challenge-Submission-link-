@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model PIerresTreats.Models.Flavors
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Add a new flavor</h1>
+      </div>
+      <br>
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.Type)
+        @Html.TextBoxFor(model => model.Type, new { @required = "required"})
+        <input id="button" type="submit" value="Add new flavor" class="btn btn-success" />
+      }
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Flavor List", "Index")</button>
+    </div>
+  </div>
+</div>
