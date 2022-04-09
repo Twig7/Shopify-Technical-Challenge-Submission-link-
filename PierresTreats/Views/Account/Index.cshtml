@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+@using System.Security.Claims
+<div class="container">
+  <div class="card-header">
+    <center>
+      <h1>Account Login</h1>
+    </center>
+  </div>
+  <br>
+  @if (User.Identity.IsAuthenticated)
+  {
+    <center>
+      <h1>Welcome, @User.Identity.Name !</h1>
+      @using (Html.BeginForm("LogOff", "Account"))
+      {
+        <input type="submit" id="button" type="button" class="btn btn-success" value="Log out" />
+      }
+    </center>
+  }
+  else
+  {
+    <center><button id="button" type="button" class="btn btn-success"> @Html.ActionLink("Create new account",
+      "Register")</button></center>
+    <center><button id="button" type="button" class="btn btn-success">@Html.ActionLink("Login", "Login")</button></center>
+    <center><button id="button" type="button" class="btn btn-success">@Html.ActionLink("Home", "*Index", "Home")</button>
+    </center>
+  }
+</div>
