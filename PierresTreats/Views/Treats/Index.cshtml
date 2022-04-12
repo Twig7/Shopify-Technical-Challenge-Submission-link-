@@ -14,7 +14,7 @@
         <center>
           @foreach (Treat treat in Model)
           {
-            <h2>@Html.ActionLin($"{treat.Name}", "Details", new { id = treat.TreatId })</h2>
+            <h2>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</h2>
           }
         </center>
       }
