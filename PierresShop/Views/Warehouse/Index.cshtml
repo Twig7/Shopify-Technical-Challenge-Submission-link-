@@ -1,28 +1,28 @@
 @{
   Layout = "_Layout";
 }
-@using PierresTreats.Models
-@model IEnumerable<PierresTreats.Models.Treat>
+@using PierresShop.Models
+@model IEnumerable<PierresShop.Models.Warehouse>
 <div class="container">
   <div class="col-md-12">
     <div class="row">
       <div class="card-header">
-        <h1>Check out our treats!</h1>
+        <h1>Check out our warehouses!</h1>
       </div>
       @if (Model.Any())
       {
         <center>
-          @foreach (Treat treat in Model)
+          @foreach (Warehouse warehouse in Model)
           {
-            <h2>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</h2>
+            <h2>@Html.ActionLink($"{warehouse.Name}", "Details", new { id = warehouse.WarehouseId })</h2>
           }
         </center>
       }
       else
       {
-        <h2>Uh oh, there aren't treats here yet!</h2>
+        <h2>Uh oh, there aren't warehouses listed yet!</h2>
       }
-      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Add new treat", "Create")</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Add new warehouse", "Create")</button>
       <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Home", "Index", "Home")</button>
     </div>
   </div>

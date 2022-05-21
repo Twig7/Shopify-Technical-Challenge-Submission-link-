@@ -1,27 +1,27 @@
 @{
   Layout = "_Layout";
 }
-@model PierresTreats.Models.Treat
+@model PierresShop.Models.Warehouse
 <div class="container">
   <div class="col-md-12">
     <div class="row">
       <div class="card-header">
-        <h1>Edit treat?</h1>
+        <h1>Edit warehouse?</h1>
       </div>
-      <h3>Edit this treat: @Html.DisplayFor(model => model.Name)</h3>
+      <h3>Edit this warehouse: @Html.DisplayFor(model => model.Name)</h3>
       <br>
       @using (Html.BeginForm())
       {
-        @Html.HiddenFor(model => model.TreatId)
+        @Html.HiddenFor(model => model.WarehouseId)
         @Html.LabelFor(model => model.Name)
         @Html.EditorFor(model => model.Name, new { @required = "required"})
         @Html.LabelFor(model => model.Amount)
         @Html.TextBoxFor(model => model.Amount, new { @required = "require"})
-        @Html.Label("Select Flavor")
-        @Html.DropDownList("FlavorId")
+        @Html.Label("Select Inventory")
+        @Html.DropDownList("InventoryId")
         <input type="submit" id="button" type="submit" value="Save" />
       }
-      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Treat List", "Index")</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Warehouse List", "Index")</button>
     </div>
   </div>
 </div>
