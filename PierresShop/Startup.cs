@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PierresTreats.Models;
+using PierresShop.Models;
 
-namespace PierresTreats
+namespace PierresShop
 {
   public class Startup
   {
@@ -26,11 +26,11 @@ namespace PierresTreats
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<PierresTreatsContext>(options => options
+        .AddDbContext<PierresShopContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<PierresTreatsContext>()
+        .AddEntityFrameworkStores<PierresShopContext>()
         .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
