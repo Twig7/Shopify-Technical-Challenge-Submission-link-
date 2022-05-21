@@ -1,0 +1,40 @@
+@{
+  Layout = "_Layout";
+}
+@model PierresShop.Models.Warehouse
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Check out these warehouses!</h1>
+      </div>
+      <h2>@Html.DisplayFor(model => model.Name)</h2>
+      @if (@Model.Amount == 0)
+      {
+        <h2>Yikes, looks like you don't have any warehouses!!</h2>
+      }
+      else
+      {
+        <h2>@Html.DisplayFor(model => model.Amount)</h2>
+      }
+      @if (@Model.JoinEntities.Count == 0)
+      {
+        <h3>Uh oh, no items listed for this warehouse.</h3>
+      }
+      else
+      {
+        @foreach (var join in Model.JoinEntities)
+        {
+          <h3>@join.Inventory.Type</h3>
+          @using (Html.BeginForm("DeleteInventory", "Warehouse"))
+          {
+            @Html.Hidden("joinId", @join.InventoryWarehouseId)
+            <input type="submit" value="Remove Inventory" id="button" class="btn btn-success" />
+          }
+        }
+      }
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Edit warehouse", "Edit", new { id =
+        Model.WarehouseId})</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Delete Warehouse", "Delete", new { id =
+        Model.WarehouseId})</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Inventory List", "Index")</button>

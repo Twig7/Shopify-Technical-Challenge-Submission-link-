@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+@using PierresShop.Models;
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Check out our inventory!</h1>
+      </div>
+      @if (Model.Count == 0)
+      {
+        <center>
+          <h2>Add some inventory! You don't have any!</h2>
+        </center>
+      }
+
+      @foreach (Inventory inventory in Model)
+      {
+        <h2>@Html.ActionLink($"{inventory.Type}", "Details", new { id = inventory.InventoryId })</h2>
+      }
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Add an item", "Create")</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Home", "Index", "Home")</button>
+    </div>
+  </div>
+</div>

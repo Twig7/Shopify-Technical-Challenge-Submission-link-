@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+@model PierresShop.Models.Inventory
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Check out these items!</h1>
+      </div>
+      @if (Model.JoinEntities.Count == 0)
+      {
+        <h2>Yikes, looks like we don't have @Html.DisplayFor(model => model.Type) .</h2>
+      }
+      else
+      {
+        <h2>Our selections of @Html.DisplayFor(model => model.Type) :</h2>
+        @foreach (var join in Model.JoinEntities)
+        {
+          <h2>@join.Warehouse.Name</h2>
+        }
+      }
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Edit inventory", "Edit", new { id =
+        Model.InventoryId})</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Delete Inventory", "Delete", new { id =
+        Model.InventoryId})</button>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Inventory List", "Index")</button>

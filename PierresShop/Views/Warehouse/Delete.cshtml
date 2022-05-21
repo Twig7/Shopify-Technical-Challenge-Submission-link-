@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model PierresShop.Models.Warehouse
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card-header">
+        <h1>Not feeling this warehouse anymore?</h1>
+      </div>
+      <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+      <br>
+      @using (Html.BeginForm())
+      {
+        <input type="submit" value="Delete" id="button" type="button" class="btn btn-success" />
+      }
+      <br>
+      <button id="button" type="button" class="btn btn-success">@Html.ActionLink("Warehouse List", "Index")</button>
+    </div>
+  </div>
+</div>
